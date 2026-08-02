@@ -1,0 +1,27 @@
+{
+  "name": "jsa-8-hw",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url /JSA-8/",
+    "deploy": "npm run build && gh-pages -d dist -b deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matvej-Povroznyk/JSA-8.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.9",
+    "nanoid": "^6.0.0"
+  },
+  "homepage": "https://matvej-povroznyk.github.io/JSA-8"
+}

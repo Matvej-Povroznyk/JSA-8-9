@@ -1,0 +1,168 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+
+  border-radius: 15px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 247, 1),
+    rgba(96, 83, 237, 1)
+  );
+
+  backdrop-filter: blur(15px);
+}
+
+#bookmarkApp h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#bookmarkInput {
+  width: 600px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+#addBookmarkBtn {
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  color: #6053ed;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#addBookmarkBtn:hover {
+  background: #e8e8e8;
+}
+
+#bookmarkList {
+  margin-top: 20px;
+  padding-left: 0;
+  list-style: none;
+
+  max-height: 180px;
+  height: 180px;
+  overflow-y: auto;
+}
+
+#bookmarkList::-webkit-scrollbar {
+  width: 8px;
+}
+
+#bookmarkList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+#bookmarkList::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
+
+#bookmarkList::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+#bookmarkList li {
+  margin-bottom: 10px;
+  padding: 10px 15px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.25);
+
+  border-radius: 10px;
+}
+
+#bookmarkList a {
+  color: #d6f8ff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#bookmarkList a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+#bookmarkList button {
+  width: 30px;
+  height: 30px;
+
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: white;
+
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#bookmarkList button:hover {
+  background: rgba(255, 0, 0, 0.3);
+  color: #ff4d4d;
+}
+
+#formApp h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#formApp input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  outline: none;
+
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+#formApp input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#saveBtn {
+  width: 100%;
+  padding: 10px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: white;
+  color: #6053ed;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#saveBtn:hover {
+  background: #f0f0f0;
+}
