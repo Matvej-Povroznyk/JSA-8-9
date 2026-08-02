@@ -1,0 +1,149 @@
+*, :before, :after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  backdrop-filter: blur(15px);
+  background: linear-gradient(90deg, #00fff7, #6053ed);
+  border-radius: 15px;
+  width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+#bookmarkApp h1 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#bookmarkInput {
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  width: 600px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#addBookmarkBtn {
+  color: #6053ed;
+  cursor: pointer;
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  margin-left: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  transition: all .2s;
+}
+
+#addBookmarkBtn:hover {
+  background: #e8e8e8;
+}
+
+#bookmarkList {
+  height: 180px;
+  max-height: 180px;
+  margin-top: 20px;
+  padding-left: 0;
+  list-style: none;
+  overflow-y: auto;
+}
+
+#bookmarkList::-webkit-scrollbar {
+  width: 8px;
+}
+
+#bookmarkList::-webkit-scrollbar-track {
+  background: #ffffff1a;
+  border-radius: 10px;
+}
+
+#bookmarkList::-webkit-scrollbar-thumb {
+  background: #fff6;
+  border-radius: 10px;
+}
+
+#bookmarkList::-webkit-scrollbar-thumb:hover {
+  background: #fff9;
+}
+
+#bookmarkList li {
+  background: #00000040;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  display: flex;
+}
+
+#bookmarkList a {
+  color: #d6f8ff;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#bookmarkList a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#bookmarkList button {
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  transition: all .2s;
+}
+
+#bookmarkList button:hover {
+  color: #ff4d4d;
+  background: #ff00004d;
+}
+
+#formApp h1 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#formApp input {
+  box-sizing: border-box;
+  color: #fff;
+  background: #0003;
+  border: 1px solid #fff3;
+  border-radius: 8px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+#formApp input::placeholder {
+  color: #ffffffb3;
+}
+
+#saveBtn {
+  color: #6053ed;
+  cursor: pointer;
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  padding: 10px;
+  transition: all .2s;
+}
+
+#saveBtn:hover {
+  background: #f0f0f0;
+}
+/*# sourceMappingURL=JSA-8-HW.c92073ef.css.map */
