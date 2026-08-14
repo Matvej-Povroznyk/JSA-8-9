@@ -1,7 +1,8 @@
 import { nanoid } from "nanoid";
+import * as storage from "./storage"
 
 const STORAGE_KEY = "bookmarks";
-const bookmarks = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
+const bookmarks = storage.load(STORAGE_KEY)
 
 function addBookmark(url) {
   const bookmark = {
@@ -42,14 +43,11 @@ function getBookmarks() {
 }
 
 function saveBookmarks() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(bookmarks));
+  storage.save(STORAGE_KEY, bookmarks)
 }
 
 function loadBookmarks() {
-  const data = localStorage.getItem(STORAGE_KEY);
-  if (!data) return [];
-
-  return JSON.parse(data);
+  storage.load(STORAGE_KEY)
 }
 
 export {

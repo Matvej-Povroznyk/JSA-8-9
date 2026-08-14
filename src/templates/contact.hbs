@@ -1,0 +1,9 @@
+{{#each contacts}}
+  <li data-phone="{{phone}}">
+    <div class="contact">
+      <p class="contact-name">{{firstName}} {{lastName}}</p>
+      <p class="contact-info">{{phone}} {{email}}</p>
+    </div>
+    <button class="deleteContact-btn">✕</button>
+  </li>
+{{/each}}

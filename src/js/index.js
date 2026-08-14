@@ -1,52 +1,105 @@
-import {
-  addBookmark,
-  deleteBookmark,
-  normalizeUrl,
-  getBookmarks,
-} from "./bookmark";
-import { renderBookmarks } from "./render";
+import * as bookmark from "./bookmark";
+import * as contact from "./contact";
+import * as storage from "./storage";
+import { renderBookmarks, renderContacts } from "./render";
 
 const bookmarkList = document.querySelector(`#bookmarkList`);
 const addBookmarkBtn = document.querySelector(`#addBookmarkBtn`);
 const bookmarkInput = document.querySelector(`#bookmarkInput`);
 
-addBookmarkBtn.addEventListener(`click`, () => {
-  const url = normalizeUrl(bookmarkInput.value);
-  if (!url) return;
+function handleAddBookmark() {
+  const url = bookmark.normalizeUrl(bookmarkInput.value);
 
-  const bookmarks = addBookmark(url);
+  if (!url) {
+    alert(`Please enter correct url.`);
+    return;
+  }
+
+  const bookmarks = bookmark.addBookmark(url);
   renderBookmarks(bookmarks);
-  bookmarkInput.value = "";
-});
 
-bookmarkList.addEventListener(`click`, (e) => {
+  bookmarkInput.value = "";
+}
+
+function handleDeleteBookmark(e) {
   if (e.target.classList.contains("deleteBookmark-btn")) {
     const id = e.target.closest(`li`).dataset.id;
 
-    const bookmarks = deleteBookmark(id);
+    const bookmarks = bookmark.deleteBookmark(id);
     renderBookmarks(bookmarks);
   }
-});
+}
 
-renderBookmarks(getBookmarks());
+function handleSave() {
+  const userData = {
+    username: usernameInput.value.trim(),
+    password: passwordInput.value.trim(),
+  };
 
-const STORAGE_KEY = "userData";
+  storage.save(USER_STORAGE_KEY, userData);
+}
+
+addBookmarkBtn.addEventListener(`click`, handleAddBookmark);
+bookmarkList.addEventListener(`click`, handleDeleteBookmark);
+
+renderBookmarks(bookmark.getBookmarks());
+
+const USER_STORAGE_KEY = "userData";
+
 const usernameInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");
 const saveBtn = document.querySelector("#saveBtn");
 
-const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+const savedData = storage.load(USER_STORAGE_KEY);
 
 if (savedData) {
   usernameInput.value = savedData.username;
   passwordInput.value = savedData.password;
 }
 
-saveBtn.addEventListener("click", () => {
-  const userData = {
-    username: usernameInput.value.trim(),
-    password: passwordInput.value.trim(),
-  };
+saveBtn.addEventListener("click", handleSave);
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(userData));
-});
+const CONTACT_STORAGE_KEY = "contacts";
+
+const contactsList = document.querySelector(`#contactsList`);
+const addContactBtn = document.querySelector(`#addContactBtn`);
+
+function handleAddContact() {
+  const firstName = document.querySelector(`#firstName`);
+  const lastName = document.querySelector(`#lastName`);
+  const phone = document.querySelector(`#phone`);
+  const email = document.querySelector(`#email`);
+
+  if (!firstName.value.trim() || !phone.value.trim()) {
+    alert("First Name and phone are required!");
+    return;
+  }
+
+  const contacts = contact.addContact(
+    firstName.value.trim(),
+    lastName.value.trim(),
+    phone.value.trim(),
+    email.value.trim(),
+  );
+
+  renderContacts(contacts);
+
+  firstName.value = "";
+  lastName.value = "";
+  phone.value = "";
+  email.value = "";
+}
+
+function handleDeleteContact(e) {
+  if (e.target.classList.contains("deleteContact-btn")) {
+    const phone = e.target.closest(`li`).dataset.phone;
+
+    const contacts = contact.deleteContact(phone);
+    renderContacts(contacts);
+  }
+}
+
+addContactBtn.addEventListener(`click`, handleAddContact);
+contactsList.addEventListener(`click`, handleDeleteContact);
+
+renderContacts(contact.getContacts());

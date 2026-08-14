@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <!-- TASK 1 -->
     <div class="container" id="bookmarkApp">
       <h1>Закладки</h1>
       <input type="text" id="bookmarkInput" placeholder="URL" />
@@ -19,6 +18,15 @@
       <input type="text" id="username" placeholder="Логін" />
       <input type="password" id="password" placeholder="Пароль" />
       <button id="saveBtn">Зберегти</button>
+    </div>
+    <div class="container" id="contactsApp">
+      <h1>Контакти</h1>
+      <input type="text" id="firstName" placeholder="Ім'я" required/>
+      <input type="text" id="lastName" placeholder="Призвіще" />
+      <input type="tel" id="phone" placeholder="Номер телефону" required/>
+      <input type="email" id="email" placeholder="Електронна адреса" />
+      <button id="addContactBtn">Додати</button>
+      <ul id="contactsList"></ul>
     </div>
     <script src="./js/index.js" type="module"></script>
   </body>

@@ -1,21 +1,17 @@
+import Handlebars from "handlebars";
+import bookmarkTemplate from 'bundle-text:../templates/bookmark.hbs'
+import contactTemplate from 'bundle-text:../templates/contact.hbs'
+
+const bookmarkTemplateFn = Handlebars.compile(bookmarkTemplate);
+const contactTemplateFn = Handlebars.compile(contactTemplate)
+
 export function renderBookmarks(bookmarks) {
     const bookmarkList = document.querySelector(`#bookmarkList`);
-    bookmarkList.innerHTML = ""
+    bookmarkList.innerHTML = bookmarkTemplateFn({bookmarks})
+}
 
-    bookmarks.forEach(b => {
-        const li = document.createElement(`li`)
-        li.dataset.id = b.id;
+export function renderContacts(contacts) {
+    const contactsList = document.querySelector(`#contactsList`);
+    contactsList.innerHTML = contactTemplateFn({contacts});
 
-        const urlEl = document.createElement(`a`);
-        urlEl.textContent = b.url;
-        urlEl.href = b.url;
-        urlEl.target = "_blank"
-
-        const deleteBtn = document.createElement(`button`);
-        deleteBtn.textContent = "✕"
-        deleteBtn.classList.add("deleteBookmark-btn")
-
-        li.append(urlEl, deleteBtn);
-        bookmarkList.append(li)
-    });
 }
